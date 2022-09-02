@@ -3,7 +3,6 @@ import datetime
 
 class Books(object):
 
-    # Define constructor to create new book records with the following attributes
     def __init__(self, book_id, book_title, book_author, book_year,
                  book_publisher, book_available_copies, book_copies, book_publication_date):
         self.book_id = book_id
@@ -15,7 +14,6 @@ class Books(object):
         self.book_copies = int(book_copies)
         self.book_publication_date = book_publication_date
 
-    # Set attributes
     def setBookID(self, book_id):
         self.book_id = book_id
 
@@ -40,7 +38,6 @@ class Books(object):
     def setPublicationDate(self, book_publication_date):
         self.book_publication_date = book_publication_date
 
-    # Get attributes
     def getBookID(self):
         return self.book_id
 
@@ -95,17 +92,17 @@ class Books(object):
 
 
 class BookList:
-    # List for collection of books
+
     book_collection = []
 
     def __init__(self):
         self.book_collection = []
 
-    # Store book instances that are created from Book object in book_collection
+
     def add_book(self, book: Books):
         self.book_collection.append(book)
 
-    # Search for book
+    
     def search(self):
 
         while True:
@@ -156,7 +153,7 @@ class BookList:
 
     # Remove book by title
     def remove_book(self):
-        del_book = input('Delete book: ')
+        del_book = input('Delete book by title: ')
         for book in self.book_collection:
             if book.book_title in del_book:
                 self.book_collection.remove(book)
@@ -165,12 +162,12 @@ class BookList:
                 print('Try again')
         return self.book_collection
 
-    # Return the number of books in the collection
+    
     def total_books(self):
         print(len(self.book_collection))
         return len(self.book_collection)
 
-    # Validate book exists in the collection
+    # Check if book exists in the collection
     def getBook(self):
         found = 0
         not_found = 0
@@ -210,7 +207,6 @@ class Users(object):
         self.email = email
         self.date_of_birth = date_of_birth
 
-    # Get attributes
     def getUsername(self):
         return self.username
 
@@ -236,25 +232,21 @@ class Users(object):
         return self.date_of_birth
 
     def editFirstName(self):
-        # must be alphabetical characters only
         edit_fname = input('Change first name to: ')
         self.first_name = edit_fname
         print(f'New firstname is: {edit_fname}')
 
     def editSurname(self):
-        # must be alphabetical characters only
         edit_sname = input('Change surname to: ')
         self.surname = edit_sname
         print(f'New surname is: {edit_sname}')
 
     def editEmail(self):
-        # must contain@
         edit_email = input('Change email to: ')
         self.email = edit_email
         print(f'New email is: {self.email}')
 
     def editDateOfBirth(self):
-        # must be string
         edit_dob = input('Change date of birth to: ')
         self.date_of_birth = edit_dob
         print(f'New date of birth is: {self.date_of_birth}')
@@ -284,11 +276,9 @@ class UserList:
     def __init__(self):
         self.list_of_users = []
 
-    # Adds instances of Users object to list_of_users
     def addUser(self, user: Users):
         self.list_of_users.append(user)
 
-    # Checks if there are multiple users with the same first name
     def findDuplicate(self):
         num_duplicates = 0
         del_user = input('Enter user firstname: ')
@@ -302,7 +292,6 @@ class UserList:
         else:
             pass
 
-    # Removes user from the list by username
     def removeUser(self):
         if self.findDuplicate() is True:
             del_book = input('Enter username to delete user: ')
@@ -312,9 +301,7 @@ class UserList:
                     print(f'{user.username} has been deleted')
                     print(self.list_of_users)
 
-    # Return the number of users currently in the list
     def totalUsers(self):
-        print(len(self.list_of_users))
         return len(self.list_of_users)
 
     # Prints user details by getting username as input
@@ -378,12 +365,11 @@ class Loans:
 
     def __init__(self):
         self.loans = []
+        
 
-    # Adds a new instance of Loan object to the list of loans
     def add_loan(self, loan: Loan):
         self.loans.append(loan)
 
-    # Method for user to borrow a book. Loaned book is an instance of Loan object
     def borrowBook(self, username, book):
         available_copies = book.getNumAvailableCopies()
         book.setNumAvailableCopies(available_copies - 1)
@@ -417,8 +403,7 @@ class Loans:
             return loanDetails
         else:
             pass
-
-    # Returns a book that was previously loaned
+        
     def returnBook(self, username, book):
         if len(loans.loans) == 0:
             print("No books are issued. \n")
@@ -429,7 +414,6 @@ class Loans:
             self.loans.remove(returned_book)
             print(f'Book returned. Available copies left: {book.getNumAvailableCopies()}')
 
-    # Shows an example list of overdue books
     def overdueBooks(self):
         overdue_books = []
         for item in self.loans:
