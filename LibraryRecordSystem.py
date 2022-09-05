@@ -1,4 +1,4 @@
-# This is a project I submitted as an university assignment. Due to time constraints, it's far from finished and refactoring is in progress. 
+# This is a project I submitted as an university assignment. Due to time constraints, it's far from ideal and refactoring is in progress. 
 
 import datetime
 
