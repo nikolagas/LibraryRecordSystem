@@ -34,7 +34,7 @@ class Books(object):
     def setNumAvailableCopies(self, book_available_copies):
         self.book_available_copies = book_available_copies
 
-    def Copies(self, book_copies):
+    def setCopies(self, book_copies):
         self.book_copies = book_copies
 
     def setPublicationDate(self, book_publication_date):
