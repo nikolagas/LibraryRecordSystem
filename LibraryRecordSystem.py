@@ -1,5 +1,3 @@
-# This is a project I submitted as an university assignment. Due to time constraints, it's far from ideal and refactoring is in progress. 
-
 import datetime
 
 
@@ -64,7 +62,6 @@ class Books(object):
     def getPublicationDate(self):
         return self.book_publication_date
 
-    # Display book details
     def display_book(self):
         print(f'\nBook ID: {self.book_id}',
               f'\nBook title: {self.book_title}',
